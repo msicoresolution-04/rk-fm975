@@ -21,14 +21,6 @@ jobs:
       - name: Build Web
         run: flutter build web --release
 
-      - name: Build APK for Android install
-        run: flutter build apk --release
-
-      - name: Copy APK to downloads
-        run: |
-          mkdir -p build/web/downloads
-          cp build/app/outputs/flutter-apk/app-release.apk build/web/downloads/rkfm-97.5.apk
-
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:

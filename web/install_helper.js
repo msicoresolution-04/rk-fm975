@@ -1,6 +1,6 @@
 // RKFM Install Helper — platform-aware install for Android / iOS / Web PWA
 (function () {
-  const APK_URL = '/downloads/rkfm-97.5.apk';
+  const APK_URL = 'https://github.com/msicoresolution-04/rk-fm975/releases/latest/download/rkfm-97.5.apk';
   let deferredPrompt = null;
 
   function detectPlatform() {

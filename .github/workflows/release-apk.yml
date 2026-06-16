@@ -1,0 +1,32 @@
+name: Release APK
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - run: flutter pub get
+      - run: flutter build apk --release
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/app/outputs/flutter-apk/app-release.apk
+          name: RKFM 97.5 Release
+          tag_name: v1.0.0
+          body: |
+            97.5 RKFM Broadcast Console — Android APK
+            Install via https://rk-fm975.web.app INSTALL button
+          rename_files: |
+            app-release.apk=rkfm-97.5.apk
