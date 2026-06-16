@@ -1,0 +1,45 @@
+name: rkfm_broadcast
+description: "97.5 RKFM Radio Broadcast Automation & Facebook Live Streaming Platform - Powered By MSiCore Solution"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  provider: ^6.1.2
+  get_it: ^8.0.3
+  sqflite: ^2.4.2
+  path: ^1.9.1
+  path_provider: ^2.1.5
+  flutter_secure_storage: ^9.2.4
+  encrypt: ^5.0.3
+  crypto: ^3.0.6
+  uuid: ^4.5.1
+  intl: ^0.20.2
+  connectivity_plus: ^6.1.4
+  permission_handler: ^11.4.0
+  shared_preferences: ^2.5.3
+  json_annotation: ^4.9.0
+  collection: ^1.19.1
+  equatable: ^2.0.7
+  flutter_svg: ^2.0.17
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  json_serializable: ^6.9.5
+  build_runner: ^2.4.15
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/images/splash_bg.svg
+    - assets/templates/
+    - assets/logos/
+    - assets/logos/rkfm_logo.svg

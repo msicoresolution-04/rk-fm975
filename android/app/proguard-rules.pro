@@ -1,0 +1,3 @@
+-keep class com.msicore.rkfm.rkfm_broadcast.** { *; }
+-keep class androidx.camera.** { *; }
+-dontwarn androidx.camera.**
