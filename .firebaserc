@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "rk-fm975"
+  },
+  "targets": {
+    "rk-fm975": {
+      "hosting": {
+        "rk-fm975": [
+          "rk-fm975"
+        ]
+      }
+    }
+  }
+}

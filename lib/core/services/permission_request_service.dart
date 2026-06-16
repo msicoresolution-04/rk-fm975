@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class PermissionRequestService {
   static Future<bool> requestBroadcastPermissions() async {
+    if (kIsWeb) return true;
     final permissions = [
       Permission.camera,
       Permission.microphone,

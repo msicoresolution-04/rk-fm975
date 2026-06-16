@@ -4,6 +4,30 @@
 
 Enterprise-grade Android/iOS tablet-first radio broadcast automation and Facebook Live streaming platform.
 
+## Web Install Portal — rk-fm975.web.app
+
+When users open **https://rk-fm975.web.app**, a green **INSTALL** button appears at the top.
+
+| Platform | What happens when you click INSTALL |
+|----------|-------------------------------------|
+| **Android** | Downloads `rkfm-97.5.apk` → tap to install |
+| **iOS** | Shows Add to Home Screen guide (PWA) |
+| **Web/Desktop** | Triggers PWA install prompt |
+
+### Deploy to Firebase Hosting
+
+```powershell
+# 1. Login to Firebase (msicoresolution account)
+firebase login
+
+# 2. Deploy
+.\scripts\deploy-firebase.ps1
+```
+
+Live URL: **https://rk-fm975.web.app**
+
+---
+
 ## Quick Start
 
 ```powershell

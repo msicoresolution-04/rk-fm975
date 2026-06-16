@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,6 +14,7 @@ import 'package:rkfm_broadcast/presentation/viewmodels/broadcast_viewmodel.dart'
 import 'package:rkfm_broadcast/presentation/viewmodels/dashboard_viewmodel.dart';
 import 'package:rkfm_broadcast/presentation/viewmodels/settings_viewmodel.dart';
 import 'package:rkfm_broadcast/presentation/widgets/branding_widgets.dart';
+import 'package:rkfm_broadcast/presentation/widgets/install_banner.dart';
 
 class RkfmBroadcastApp extends StatelessWidget {
   const RkfmBroadcastApp({super.key});
@@ -30,6 +32,7 @@ class RkfmBroadcastApp extends StatelessWidget {
         title: AppConstants.appName,
         debugShowCheckedModeBanner: false,
         theme: AppTheme.darkTheme,
+        builder: (context, child) => InstallBanner(child: child ?? const SizedBox()),
         home: const _AppInitializer(),
       ),
     );
@@ -53,12 +56,14 @@ class _AppInitializerState extends State<_AppInitializer> {
   }
 
   Future<void> _init() async {
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-    await PermissionRequestService.requestBroadcastPermissions();
+    if (!kIsWeb) {
+      await SystemChrome.setPreferredOrientations([
+        DeviceOrientation.landscapeLeft,
+        DeviceOrientation.landscapeRight,
+      ]);
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+      await PermissionRequestService.requestBroadcastPermissions();
+    }
 
     final auth = getIt<AuthViewModel>();
     final hasSession = await auth.tryRestoreSession();
